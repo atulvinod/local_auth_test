@@ -52,6 +52,7 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
   private FingerprintManager fingerprintManager;
   private KeyguardManager keyguardManager;
   private Result lockRequestResult;
+  private Context context;
   private final PluginRegistry.ActivityResultListener resultListener =
       new PluginRegistry.ActivityResultListener() {
         @Override
@@ -84,6 +85,7 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
     final LocalAuthPlugin plugin = new LocalAuthPlugin();
     plugin.activity = registrar.activity();
     channel.setMethodCallHandler(plugin);
+    context = registrar.context();
     registrar.addActivityResultListener(plugin.resultListener);
   }
 
@@ -119,9 +121,9 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
   }
 
   private void openSettings() {
-    var intent: Intent = Intent(Settings.ACTION_SECURITY_SETTINGS)
-    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    context.startActivity(intent)
+    Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    context.startActivity(intent);
 }
 
   /*
