@@ -112,7 +112,7 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
       case "stopAuthentication":
         stopAuthentication(result);
         break;
-        case "openSettings":
+        case "goToSettings":
         openSettings();
         break;
       default:

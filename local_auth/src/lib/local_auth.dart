@@ -178,6 +178,6 @@ class LocalAuthentication {
   }
 
   void openSettings() {
-    _channel.invokeMethod("gotoSettings");
+    _channel.invokeMethod("goToSettings");
   }
 }
