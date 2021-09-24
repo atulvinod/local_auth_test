@@ -52,7 +52,7 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
   private FingerprintManager fingerprintManager;
   private KeyguardManager keyguardManager;
   private Result lockRequestResult;
-  private Context context;
+  private static Context context;
   private final PluginRegistry.ActivityResultListener resultListener =
       new PluginRegistry.ActivityResultListener() {
         @Override
