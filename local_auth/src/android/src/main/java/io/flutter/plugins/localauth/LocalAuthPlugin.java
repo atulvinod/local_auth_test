@@ -109,11 +109,20 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
       case "stopAuthentication":
         stopAuthentication(result);
         break;
+        case "openSettings":
+        openSettings();
+        break;
       default:
         result.notImplemented();
         break;
     }
   }
+
+  private void openSettings() {
+    var intent: Intent = Intent(Settings.ACTION_SECURITY_SETTINGS)
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    context.startActivity(intent)
+}
 
   /*
    * Starts authentication process
