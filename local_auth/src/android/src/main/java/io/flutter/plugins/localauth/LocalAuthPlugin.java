@@ -85,8 +85,8 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
     final MethodChannel channel = new MethodChannel(registrar.messenger(), CHANNEL_NAME);
     final LocalAuthPlugin plugin = new LocalAuthPlugin();
     plugin.activity = registrar.activity();
-    channel.setMethodCallHandler(plugin);
     context = registrar.context();
+    channel.setMethodCallHandler(plugin);
     registrar.addActivityResultListener(plugin.resultListener);
   }
 
