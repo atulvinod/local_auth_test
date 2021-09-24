@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
+import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.biometric.BiometricManager;
 import androidx.fragment.app.FragmentActivity;
