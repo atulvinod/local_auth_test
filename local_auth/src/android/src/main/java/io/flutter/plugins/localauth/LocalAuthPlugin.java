@@ -121,7 +121,7 @@ public class LocalAuthPlugin implements MethodCallHandler, FlutterPlugin, Activi
   }
 
   private void openSettings() {
-    Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+    Intent intent = new Intent(Settings.ACTION_SET_NEW_PASSWORD);
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     context.startActivity(intent);
 }
