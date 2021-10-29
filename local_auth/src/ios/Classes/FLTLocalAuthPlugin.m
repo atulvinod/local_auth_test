@@ -116,6 +116,11 @@
   result(biometrics);
 }
 
+(void)openSettings: {
+ NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString]
+ 
+ }
+
 - (void)authenticateWithBiometrics:(NSDictionary *)arguments
                  withFlutterResult:(FlutterResult)result {
   LAContext *context = self.createAuthContext;
