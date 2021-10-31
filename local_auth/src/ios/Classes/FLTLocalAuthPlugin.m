@@ -39,7 +39,9 @@
     [self getAvailableBiometrics:result];
   } else if ([@"isDeviceSupported" isEqualToString:call.method]) {
     result(@YES);
-  } else {
+  } else if([@"gotoSettings" isEqualToString:call.method]) {
+    [self openSettings]
+  }else {
     result(FlutterMethodNotImplemented);
   }
 }
@@ -116,10 +118,13 @@
   result(biometrics);
 }
 
-(void)openSettings: {
- NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString]
- 
- }
+- (void)openSettings{
+ if (@available(iOS 10.0, *)){
+   [UIApplication openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+  }else{
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+  }
+}
 
 - (void)authenticateWithBiometrics:(NSDictionary *)arguments
                  withFlutterResult:(FlutterResult)result {
