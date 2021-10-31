@@ -120,7 +120,7 @@
 
 - (void)openSettings{
  if (@available(iOS 10.0, *)){
-   [UIApplication openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+   [[UIApplication sharedApplication] open:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
   }else{
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
   }
