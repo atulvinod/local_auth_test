@@ -119,7 +119,11 @@
 }
 
 - (void)openSettings{
+  if(@available(iOS 10.0, *)){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:^(BOOL success){}];
+  }else{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+  }
 }
 
 - (void)authenticateWithBiometrics:(NSDictionary *)arguments
